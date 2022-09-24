@@ -50,6 +50,7 @@ const questions = [
     message: "What is your installation process?",
   },
 ];
+
 const start = async () => {
     // prompt questions and get answers
     const answers = await inquirer.prompt(questions);

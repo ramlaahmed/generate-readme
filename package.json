@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ramlaahmed/generatereadmefile/issues"
   },
-  "homepage": "https://github.com/ramlaahmed/generatereadmefile#readme"
+  "homepage": "https://github.com/ramlaahmed/generatereadmefile#readme",
+  "dependencies": {
+    "inquirer": "^9.1.2"
+  }
 }
