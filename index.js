@@ -1,67 +1,181 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const generateMarkdown = require('./source/generateMarkdown');
+const inquirer = require("inquirer");
+const fs = require("fs");
 
-
-
-const questions = () => {
-    return inquirer.prompt ([ 
-        
-        {
-            type: "input",
-            message: "REAdME heading?",
-            name: "heading"
-        },
-        {
-            type: "input",
-            message: "whats your project title?",
-            name: "title"
-        },
-        {
-            type: "input",
-            message: "How does the user need to know about using the repo?",
-            name: "usage"
-        },
-        {
-            type: "input",
-            message: "what is your full name?",
-            name: "name"
-        },
-        {
-            type: "input",
-            message: "what is your email address?",
-            name: "email"
-        },
-        {
-            type:"input",
-            message: "what is your Github username?",
-            name: "username"
-        },
-        {
-            type: "input",
-            message: "Please write a short description of your project:",
-            name: "description"
-        },
-        {
-            type: "input",
-            message: "What command should be run to install dependencies?",
-            name: "installation"
-        },
-        {
-            type: "input",
-            message: "What does the user need to know about contributing to the repo?",
-            name: "contribution"
-        },
-        {
-            type: "input",
-            message: "What command should be run for testing?",
-            name: "tests"
-        },
-        {
-            type: "list",
-            message: "What kind of license should your project have?",
-            name: "license",
-            choices: ["MIT","APACHE","GPL","BSD","None"]
-        }
-    ]) 
-}; 
+// Declare questions
+const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of the project?",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "What is the description?",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "How do I use the application?",
+  },
+  {
+    type: "input",
+    name: "test",
+    message: "How do I test the application?",
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "What is your github username?",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email?",
+  },
+  {
+    type: "input",
+    name: "contribution",
+    message: "How can people contribute to this app?",
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "Choose a license type:",
+    choices: ["MIT", "GPL 3.0", "Apache", "BSD", "GPL 2.0"],
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "What is your installation process?",
+  },
+];
+const start = async () => {
+    // prompt questions and get answers
+    const answers = await inquirer.prompt(questions);
+    const readme = generateReadme(answers);
+  
+    // write generated readme to a file
+    writeToFile("generatedReadme.md", readme);
+  };
+  
+  const generateTitle = (answers) => {
+    return `# ${answers.title} ![MIT](https://img.shields.io/static/v1?label=${answers.license}&message=License&color=orange)`;
+  };
+  
+  const generateTableOfContents = () => {
+    return `## Table of Contents
+     
+    1. [Description](#description) 
+        <br>
+    2. [Installation](#installation) 
+        <br>
+    3. [Usage](#usage)
+        <br>
+    4. [Test](#test) 
+        <br>
+    5. [Contributing](#contributing) 
+        <br>
+    6. [License](#license) 
+        <br>
+    7. [contacts](#contacts)`;
+  };
+  
+  const generateDescription = (answers) => {
+    return `## Description
+     
+     <a id="description"></a>
+    
+     Description for the project:
+      \`\`\`
+      ${answers.description}
+      \`\`\``;
+  };
+  
+  const generateInstallation = (answers) => {
+    return `## Installation
+     <a id="installation"></a>
+    
+     Run the following script to install the packages required for the application:
+    
+     \`\`\`
+     ${answers.installation}
+     \`\`\``;
+  };
+  
+  const generateUsage = (answers) => {
+    return `## Usage
+     <a id="usage"></a>
+    
+     To use the application run the following script:
+    
+     \`\`\`
+     ${answers.usage}
+     \`\`\``;
+  };
+  
+  const generateTest = (answers) => {
+    return `## Test
+     <a id="test"></a>
+    
+     To use the application run the following script:
+    
+     \`\`\`
+     ${answers.test}
+     \`\`\``;
+  };
+  
+  const generateContributing = (answers) => {
+    return `## Contributing
+     
+     <a id="contributing"></a>
+     To contribute to the application you could:
+     
+     \`\`\`
+     ${answers.contribution}
+     \`\`\``;
+  };
+  
+  const generateLicense = (answers) => {
+    return `## License
+    <a id="license"></a>
+    
+     \`\`\`
+     ${answers.license}
+     \`\`\``;
+  };
+  
+  const generateContacts = (answers) => {
+    return `## Contact info
+    <a id="contacts"></a>
+    
+    For further question, contact me on:
+    \`\`\`
+     ${answers.github}
+     ${answers.email}
+     \`\`\``;
+  };
+  
+  const generateReadme = (answers) => {
+    return `${generateTitle(answers)}
+   ${generateTableOfContents(answers)}
+   ${generateDescription(answers)} 
+   
+   ${generateInstallation(answers)}
+   ${generateUsage(answers)}
+   ${generateTest(answers)}
+   ${generateContributing(answers)}
+   ${generateLicense(answers)}
+   ${generateContacts(answers)}
+   `;
+  };
+  
+  const writeToFile = (filePath, data) => {
+    try {
+      fs.writeFileSync(filePath, data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  
+  start();
