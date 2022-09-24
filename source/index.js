@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// Declare questions
+
 const questions = [
   {
     type: "input",
@@ -52,7 +52,7 @@ const questions = [
 ];
 
 const start = async () => {
-    // prompt questions and get answers
+    // prompt for questions and get answers
     const answers = await inquirer.prompt(questions);
     const readme = generateReadme(answers);
   
