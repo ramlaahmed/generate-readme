@@ -1,5 +1,5 @@
 {
-  "name": "generatereadmefile",
+  "name": "generate-readme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,16 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ramlaahmed/generatereadmefile.git"
+    "url": "git+https://github.com/ramlaahmed/generate-readme.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ramlaahmed/generatereadmefile/issues"
+    "url": "https://github.com/ramlaahmed/generate-readme/issues"
   },
-  "homepage": "https://github.com/ramlaahmed/generatereadmefile#readme",
+  "homepage": "https://github.com/ramlaahmed/generate-readme#readme",
   "dependencies": {
     "inquirer": "^9.1.2"
-  },
-  "devDependencies": {}
+  }
 }
