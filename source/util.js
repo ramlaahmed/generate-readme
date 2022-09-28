@@ -1,6 +1,8 @@
 
   const fs = require("fs");
 
+
+
   const writeToFile = (filePath, data) => {
     try {
       fs.writeFileSync(filePath, data);

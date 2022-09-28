@@ -1,1 +1,1 @@
-# generatereadmefile
+# generate-readme

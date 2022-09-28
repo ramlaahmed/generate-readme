@@ -68,17 +68,17 @@ const start = async () => {
     return `## Table of Contents
      
     1. [Description](#description) 
-        <br>
+       
     2. [Installation](#installation) 
-        <br>
+        
     3. [Usage](#usage)
-        <br>
+       
     4. [Test](#test) 
-        <br>
+       
     5. [Contributing](#contributing) 
-        <br>
+       
     6. [License](#license) 
-        <br>
+       
     7. [contacts](#contacts)`;
   };
   
