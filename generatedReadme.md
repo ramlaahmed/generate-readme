@@ -20,7 +20,7 @@
     
      Description for the project:
       ```
-      A readme file which is dynamically generated using Node.js
+      A readme which is dynamically generated using Node.js
       ``` 
    
    ## Installation
@@ -29,7 +29,7 @@
      Run the following script to install the packages required for the application:
     
      ```
-     
+     npm inquirer
      ```
    ## Usage
      <a id="usage"></a>
@@ -37,7 +37,7 @@
      To use the application run the following script:
     
      ```
-     When you have clone the repo and installing inquirer, use the command line
+     When you have done cloning the repositry and installing inquirer,using the command line to navigate and type node idex
      ```
    ## Test
      <a id="test"></a>
@@ -53,7 +53,7 @@
      To contribute to the application you could:
      
      ```
-     There are no contribution guidelines
+     There are no contribution for thie application
      ```
    ## License
     <a id="license"></a>
