@@ -12,6 +12,9 @@ In this project, i dynamically generate a README.md using node Javascript. i als
 
 ## Screenshots
 
+Image of VS code
+![code.png](./source/nodeJscap.png)
+
 ## Links
 
 https://drive.google.com/file/d/1Cr982jhfePHkOIJmxqzy85P_PfRchA_J/view
